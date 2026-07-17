@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+# Netlify auto-detects forms with data-netlify="true" (see contact.html, careers.html).
+# No serverless function needed for basic form capture — submissions appear
+# in Site settings > Forms in the Netlify dashboard.
