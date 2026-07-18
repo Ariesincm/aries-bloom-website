@@ -1,5 +1,5 @@
 /* =========================================================
-   ARIES BLOOM INC. — Design System
+   ARIES BLOOM INC. â€” Design System
    Ivory, champagne, taupe, black + antique gold.
    Display: Cormorant Garamond / Body: Jost
    ========================================================= */
@@ -16,10 +16,10 @@
   --gold-soft: #D9BD8F;
 
   /* --- Per-brand accents (the four "petals" of the emblem) --- */
-  --brand-glambar: #B8935A;   /* gold — beauty */
-  --brand-couture: #2A2320;   /* deep black — fashion */
-  --brand-mums:    #C98F84;   /* dusty rose — motherhood */
-  --brand-soiree:  #7C8B6F;   /* sage — celebration */
+  --brand-glambar: #B8935A;   /* gold â€” beauty */
+  --brand-couture: #2A2320;   /* deep black â€” fashion */
+  --brand-mums:    #C98F84;   /* dusty rose â€” motherhood */
+  --brand-soiree:  #7C8B6F;   /* sage â€” celebration */
 
   /* --- Type --- */
   --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -32,7 +32,19 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Safety net: nothing on this site should ever force horizontal scroll.
+   A single oversized element is the #1 cause of "desktop scaled down"
+   rendering on mobile Safari/Chrome, so we hard-block it site-wide. */
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -120,8 +132,10 @@ img { max-width: 100%; display: block; }
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 16px 34px;
+  min-height: 48px;
   font-family: var(--font-body);
   font-size: 0.78rem;
   letter-spacing: 0.2em;
@@ -140,7 +154,7 @@ img { max-width: 100%; display: block; }
 .btn--light { border-color: rgba(250,246,240,0.5); color: var(--ivory); }
 .btn--light:hover { background: var(--ivory); color: var(--black); }
 
-.btn::after { content: '→'; transition: transform 0.4s ease; }
+.btn::after { content: 'â†’'; transition: transform 0.4s ease; }
 .btn:hover::after { transform: translateX(4px); }
 
 /* =========================================================
@@ -218,11 +232,25 @@ img { max-width: 100%; display: block; }
     background: none; border: none; cursor: pointer;
     font-family: var(--font-body);
     font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    min-height: 44px; min-width: 44px;
+  }
+  .nav__links a {
+    display: inline-block;
+    padding: 10px 0;
+    min-height: 44px;
   }
 }
 
+/* Phone tier: shrink the logo/emblem mark and tighten nav padding so the
+   header doesn't crowd a 375px-wide screen. */
+@media (max-width: 480px) {
+  .nav { padding: 16px var(--gutter); }
+  .nav__mark { font-size: 1.05rem; gap: 8px; }
+  .nav__mark svg { width: 20px; height: 20px; }
+}
+
 /* =========================================================
-   EMBLEM (signature element) — four petals, one mark
+   EMBLEM (signature element) â€” four petals, one mark
    ========================================================= */
 .emblem-loader {
   position: fixed; inset: 0; z-index: 999;
@@ -314,7 +342,7 @@ img { max-width: 100%; display: block; }
 .brand-card .tag { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--taupe); margin-bottom: 1em; }
 .brand-card p { font-size: 0.92rem; margin-bottom: 1.4em; }
 .brand-card .btn { padding: 10px 0; border: none; font-size: 0.7rem; }
-.brand-card .btn::after { content: '↗'; }
+.brand-card .btn::after { content: 'â†—'; }
 .brand-card .btn:hover { background: none; color: var(--gold); }
 
 .brand-card:hover { background: var(--champagne); }
@@ -401,12 +429,16 @@ input, textarea, select {
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(26,22,19,0.3);
-  padding: 10px 2px;
+  padding: 12px 2px;
+  min-height: 44px;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1rem; /* 16px â€” prevents iOS Safari auto-zoom on focus */
   color: var(--black);
   outline: none;
   transition: border-color 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
 }
 input:focus, textarea:focus, select:focus { border-color: var(--gold); }
 textarea { resize: vertical; min-height: 110px; }
@@ -427,7 +459,7 @@ textarea { resize: vertical; min-height: 110px; }
 .role__meta { font-size: 0.8rem; color: var(--taupe); white-space: nowrap; margin-left: 24px; }
 @media (max-width: 620px) {
   .role { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .role__meta { margin-left: 0; }
+  .role__meta { margin-left: 0; white-space: normal; }
 }
 
 /* =========================================================
@@ -482,3 +514,48 @@ textarea { resize: vertical; min-height: 110px; }
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .gallery img { aspect-ratio: 3/4; object-fit: cover; width: 100%; }
 @media (max-width: 700px) { .gallery { grid-template-columns: 1fr 1fr; } }
+
+/* =========================================================
+   MOBILE-FIRST HARDENING â€” phone tier (â‰¤480px)
+   Trims the "excessive whitespace" the luxury desktop spacing
+   scale creates on a 375â€“430px screen, and shrinks the hero
+   so the first screen isn't 100% just a photo.
+   ========================================================= */
+@media (max-width: 480px) {
+  :root {
+    --gutter: 20px;
+    --section-space: 56px;
+  }
+
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.7rem; }
+  h3 { font-size: 1.3rem; }
+  .lede { font-size: 1rem; max-width: none; }
+
+  .hero { min-height: auto; }
+  .hero__copy { padding: 44px var(--gutter) 32px; }
+  .hero__image { min-height: 42vh; }
+
+  .section { padding-top: var(--section-space); padding-bottom: var(--section-space); }
+  .section--tight { padding-top: 28px; padding-bottom: 28px; }
+
+  .brand-card { min-height: auto; padding: 40px 22px; }
+  .split__image img { aspect-ratio: 4/3; }
+
+  .btn { width: 100%; padding: 15px 24px; }
+  .brand-card .btn { width: auto; } /* card links stay compact, inline with the arrow */
+
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* Small tablets / large phones (481â€“768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  :root { --gutter: 32px; }
+  .brand-grid { grid-template-columns: 1fr 1fr; }
+  .hero__image { min-height: 46vh; }
+}
+
+/* Tablets / small laptops (769â€“1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root { --gutter: 48px; }
+}
