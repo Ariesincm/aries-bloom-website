@@ -164,6 +164,19 @@ All motion is short (300–900ms), easing-based, and disabled site-wide for user
 
 ---
 
+## Responsive / Mobile Fix Log
+
+The site is mobile-first with a proper breakpoint cascade: **phone (≤480px) → large phone/small tablet (481–768px) → tablet/small laptop (769–1024px) → desktop (1025px+)**, layered on top of the fluid `clamp()`-based type and spacing scale. Changes made to resolve the "desktop layout scaled down instead of adapting" bug reported after the first Netlify deploy:
+
+- **Root cause fix:** added `overflow-x: hidden` on `html`/`body` — a single element wider than the viewport (not a missing viewport tag) is the near-universal cause of this exact symptom on iOS Safari/Chrome, where the whole page renders zoomed out instead of wrapping. This is now hard-blocked site-wide.
+- Confirmed `<meta name="viewport" content="width=device-width, initial-scale=1.0">` is present on all 9 pages (it already was — verified again, not the source of the bug, but doesn't hurt to reconfirm).
+- Added a dedicated **≤480px phone tier** that tightens `--gutter` and `--section-space`, shrinks h1–h3 sizing, and reduces the hero image height so the first screen isn't 90% just a photo.
+- **Nav/logo:** the emblem mark and wordmark shrink on phones; hamburger menu (already present) now has 44px+ tap targets and full-width tappable nav links.
+- **Buttons & form fields:** all buttons and inputs now meet a 44–48px minimum tap height; form inputs use `font-size: 1rem` (16px) to stop iOS Safari's auto-zoom-on-focus behavior.
+- **Careers role rows:** removed a `white-space: nowrap` on the meta text (employment type/location) that could overflow a narrow screen.
+- **Images:** already fluid (`max-width: 100%`) everywhere; `object-fit: cover` on all hero/gallery images keeps them cropped correctly rather than stretched at any width.
+- Added explicit tablet (769–1024px) and small-laptop gutter tiers so spacing doesn't jump straight from phone to full desktop scale.
+
 ## Next Steps Before Launch
 
 1. Replace Unsplash placeholder photography with real brand shoots.
