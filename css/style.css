@@ -362,6 +362,57 @@ select:focus-visible {
 }
 
 /* =========================================================
+   HERO — CINEMATIC VARIANT (homepage)
+   Full-bleed banner locked to the source photo's own aspect
+   ratio, so it is never cropped or distorted at any screen
+   size — followed by a centered story block. Additive only;
+   the base .hero grid above is untouched and still powers
+   the split hero used on brand pages.
+   ========================================================= */
+.hero--cinematic {
+  display: block;
+  min-height: 0;
+}
+.hero__banner {
+  width: 100%;
+  aspect-ratio: 1774 / 887;
+  overflow: hidden;
+  background: var(--champagne);
+}
+.hero__banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero__content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 88px) var(--gutter) var(--section-space);
+  text-align: center;
+}
+.hero__content .eyebrow { justify-content: center; }
+.hero__content .eyebrow::before { display: none; }
+.hero__content .lede { max-width: 58ch; margin: 0 auto 1.8em; }
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero__content > * { animation: heroFadeUp 0.9s cubic-bezier(.22,1,.36,1) both; }
+.hero__content > *:nth-child(1) { animation-delay: 0.55s; }
+.hero__content > *:nth-child(2) { animation-delay: 0.68s; }
+.hero__content > *:nth-child(3) { animation-delay: 0.82s; }
+.hero__content > *:nth-child(4) { animation-delay: 0.96s; }
+@media (prefers-reduced-motion: reduce) {
+  .hero__content > * { animation: none; }
+}
+@media (max-width: 640px) {
+  .hero__content { padding: 36px var(--gutter) 56px; }
+}
+
+/* =========================================================
    BRAND GRID (Our Brands overview)
    ========================================================= */
 .brand-grid {
