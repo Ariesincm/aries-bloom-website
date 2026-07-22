@@ -5,12 +5,28 @@
    ========================================================= */
 
 :root {
-  /* --- Palette --- */
+  /* --- Palette — refined luxury system ---
+     Named per brand direction; existing variable names kept
+     unchanged throughout the codebase to avoid a risky global
+     rename, mapped here for reference:
+       --ivory      → Warm Ivory   (primary background)
+       --cream      → Soft Cream   (secondary surface, new)
+       --champagne  → Champagne    (alternate section background)
+       --nude       → Sand Beige   (accents, borders)
+       --taupe      → Taupe        (secondary text, borders)
+       --taupe-deep → Taupe, deepened (body copy on light backgrounds)
+       --charcoal   → Warm Charcoal (new — soft dark surface, less severe than --black)
+       --black      → Matte Black  (deepest dark sections)
+       --gold       → Antique Gold (the one accent, used sparingly)
+       --gold-soft  → Antique Gold, lightened (fills, hovers)
+  */
   --ivory: #FAF6F0;
+  --cream: #F6F0E6;
   --champagne: #EDE0CC;
-  --nude: #DCC3A8;
+  --nude: #D9C2A4;
   --taupe: #A6876E;
   --taupe-deep: #6E5847;
+  --charcoal: #362E28;
   --black: #1A1613;
   --gold: #B8935A;
   --gold-soft: #D9BD8F;
@@ -28,7 +44,7 @@
   /* --- Layout --- */
   --max-width: 1280px;
   --gutter: clamp(24px, 6vw, 96px);
-  --section-space: clamp(72px, 10vw, 160px);
+  --section-space: clamp(80px, 11vw, 176px);
 }
 
 * { box-sizing: border-box; }
@@ -68,13 +84,13 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 500;
   line-height: 1.1;
-  margin: 0 0 0.5em;
+  margin: 0 0 0.55em;
   letter-spacing: 0.005em;
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 500; line-height: 1.05; }
-h2 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.12; }
+h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 500; line-height: 1.05; margin-bottom: 0.4em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.12; margin-bottom: 0.65em; }
 h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2; }
 
 p { margin: 0 0 1.2em; color: var(--taupe-deep); max-width: 62ch; }
@@ -216,7 +232,7 @@ select:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px var(--gutter);
+  padding: 26px var(--gutter);
 }
 
 .nav__mark {
@@ -225,9 +241,16 @@ select:focus-visible {
   letter-spacing: 0.06em;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
+  padding: 2px 0;
 }
 .nav__mark svg { width: 26px; height: 26px; }
+.nav__mark img {
+  height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
 
 .nav__links {
   display: flex;
@@ -287,9 +310,10 @@ select:focus-visible {
 /* Phone tier: shrink the logo/emblem mark and tighten nav padding so the
    header doesn't crowd a 375px-wide screen. */
 @media (max-width: 480px) {
-  .nav { padding: 16px var(--gutter); }
-  .nav__mark { font-size: 1.05rem; gap: 8px; }
+  .nav { padding: 18px var(--gutter); }
+  .nav__mark { font-size: 1.05rem; gap: 10px; }
   .nav__mark svg { width: 20px; height: 20px; }
+  .nav__mark img { height: 30px; }
 }
 
 /* =========================================================
@@ -386,19 +410,18 @@ select:focus-visible {
   display: block;
 }
 .hero__content {
-  max-width: 760px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: clamp(48px, 7vw, 88px) var(--gutter) var(--section-space);
-  text-align: center;
+  padding: var(--section-space) var(--gutter) calc(var(--section-space) * 0.7);
 }
-.hero__content .eyebrow { justify-content: center; }
-.hero__content .eyebrow::before { display: none; }
-.hero__content .lede { max-width: 58ch; margin: 0 auto 1.8em; }
+.hero__content .lede {
+  max-width: 58ch;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+}
 .hero__actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 .hero__content > * { animation: heroFadeUp 0.9s cubic-bezier(.22,1,.36,1) both; }
 .hero__content > *:nth-child(1) { animation-delay: 0.55s; }
@@ -409,7 +432,7 @@ select:focus-visible {
   .hero__content > * { animation: none; }
 }
 @media (max-width: 640px) {
-  .hero__content { padding: 36px var(--gutter) 56px; }
+  .hero__content { padding: 56px var(--gutter) 40px; }
 }
 
 /* =========================================================
@@ -614,6 +637,14 @@ textarea { resize: vertical; min-height: 110px; }
 .footer-grid a:hover { color: var(--gold); }
 .footer-grid a:hover::after { right: 0; }
 .footer-mark { font-family: var(--font-display); font-size: 1.6rem; color: var(--ivory); margin-bottom: 16px; }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.footer-brand img { height: 52px; width: auto; object-fit: contain; }
+.footer-brand span { font-family: var(--font-display); font-size: 1.5rem; color: var(--ivory); letter-spacing: 0.02em; }
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: center;
   padding-top: 30px; border-top: 1px solid rgba(250,246,240,0.12);
