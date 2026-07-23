@@ -30,71 +30,98 @@
 
 <main>
 
+  <!-- HERO -->
   <section class="section" style="padding-bottom:0;">
     <div class="wrap reveal">
       <span class="eyebrow">Contact</span>
-      <h1 style="max-width:16ch;">Let's talk about what you need.</h1>
-      <p class="lede" style="font-size:1.2rem;">Whether it's a beauty booking, a couture fitting, a wellness circle or an event to plan — tell us the brand and we'll route you to the right team.</p>
+      <h1 style="max-width:16ch;">You're in the Right Place.</h1>
+      <p class="lede" style="font-size:1.2rem;">However you found us, welcome. Whether it's a beauty booking, a couture fitting, a wellness circle, or an event to plan, this page exists to make sure your enquiry reaches the right people, quickly and personally.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="split reveal" style="align-items:start;">
-        <form data-form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact">
-          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
-          <div class="form-grid">
-            <div>
-              <label for="name">Full Name</label>
-              <input id="name" name="name" type="text" required>
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required>
-            </div>
-            <div class="full">
-              <label for="brand">Which Brand Is This About?</label>
-              <select id="brand" name="brand">
-                <option>General / Aries Bloom Inc.</option>
-                <option>BibisGlambar</option>
-                <option>Sasy Couture</option>
-                <option>Baddie Mums Club</option>
-                <option>BB Soirée &amp; Events</option>
-              </select>
-            </div>
-            <div class="full">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-          </div>
-          <button class="btn btn--gold" type="submit" style="margin-top:26px;">Send Message</button>
-          <p class="form-status" role="status"></p>
-        </form>
+  <!-- HOW IT WORKS -->
+  <section class="section section--tight">
+    <div class="wrap reveal">
+      <hr class="rule--gold">
+      <p class="lede" style="max-width:64ch; font-size:1.1rem; color:var(--black);">Each brand under the Aries Bloom name is run by its own team, so your message is read by someone who actually knows that world — not a general inbox. Reach a brand directly below, or send a message through the form and we'll make sure it lands in the right hands.</p>
+    </div>
+  </section>
 
+  <!-- REACH THE RIGHT TEAM -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap reveal">
+      <span class="eyebrow">Reach the Right Team</span>
+      <h2 style="max-width:18ch; margin-bottom:1.2em;">Four Brands, Four Direct Lines</h2>
+      <div class="pillars">
         <div>
-          <span class="eyebrow">Direct Lines</span>
-          <div style="margin-bottom:2em;">
-            <h3 style="font-size:1.2rem; margin-bottom:0.2em;">BibisGlambar</h3>
-            <p style="font-size:0.92rem;">hello@bibisglambar.com</p>
-          </div>
-          <div style="margin-bottom:2em;">
-            <h3 style="font-size:1.2rem; margin-bottom:0.2em;">Sasy Couture</h3>
-            <p style="font-size:0.92rem;">studio@sasycouture.com</p>
-          </div>
-          <div style="margin-bottom:2em;">
-            <h3 style="font-size:1.2rem; margin-bottom:0.2em;">Baddie Mums Club</h3>
-            <p style="font-size:0.92rem;">community@baddiemumsclub.com</p>
-          </div>
-          <div style="margin-bottom:2em;">
-            <h3 style="font-size:1.2rem; margin-bottom:0.2em;">BB Soirée &amp; Events</h3>
-            <p style="font-size:0.92rem;">plan@bbsoiree.com</p>
-          </div>
-          <hr class="rule" style="margin: 2em 0;">
-          <h3 style="font-size:1.2rem; margin-bottom:0.2em;">Aries Bloom Inc. — Corporate</h3>
-          <p style="font-size:0.92rem;">info@ariesbloominc.com</p>
+          <span class="brand-card__accent" style="background:var(--brand-glambar); display:block; width:34px; height:2px; margin-bottom:16px;"></span>
+          <h4 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.2em;">BibisGlambar</h4>
+          <p style="font-size:0.88rem; margin-bottom:0.6em;">Beauty bookings, bridal glam, and styling enquiries.</p>
+          <a href="mailto:hello@bibisglambar.com" style="font-size:0.88rem; color:var(--gold); border-bottom:1px solid var(--gold-soft);">hello@bibisglambar.com</a>
+        </div>
+        <div>
+          <span class="brand-card__accent" style="background:var(--brand-couture); display:block; width:34px; height:2px; margin-bottom:16px;"></span>
+          <h4 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.2em;">Sasy Couture</h4>
+          <p style="font-size:0.88rem; margin-bottom:0.6em;">Fittings, made-to-order garments, and couture enquiries.</p>
+          <a href="mailto:studio@sasycouture.com" style="font-size:0.88rem; color:var(--gold); border-bottom:1px solid var(--gold-soft);">studio@sasycouture.com</a>
+        </div>
+        <div>
+          <span class="brand-card__accent" style="background:var(--brand-mums); display:block; width:34px; height:2px; margin-bottom:16px;"></span>
+          <h4 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.2em;">Baddie Mums Club</h4>
+          <p style="font-size:0.88rem; margin-bottom:0.6em;">Membership, wellness circles, and community questions.</p>
+          <a href="mailto:community@baddiemumsclub.com" style="font-size:0.88rem; color:var(--gold); border-bottom:1px solid var(--gold-soft);">community@baddiemumsclub.com</a>
+        </div>
+        <div>
+          <span class="brand-card__accent" style="background:var(--brand-soiree); display:block; width:34px; height:2px; margin-bottom:16px;"></span>
+          <h4 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.2em;">BB Soirée &amp; Events</h4>
+          <p style="font-size:0.88rem; margin-bottom:0.6em;">Event planning, decor, and celebration enquiries.</p>
+          <a href="mailto:plan@bbsoiree.com" style="font-size:0.88rem; color:var(--gold); border-bottom:1px solid var(--gold-soft);">plan@bbsoiree.com</a>
         </div>
       </div>
+
+      <div style="text-align:center; margin-top:3em; padding-top:2.4em; border-top:1px solid rgba(26,22,19,0.12);">
+        <span class="eyebrow" style="justify-content:center;">Not Sure Where to Start?</span>
+        <p style="max-width:44ch; margin:0 auto;">For general or corporate enquiries — partnerships, press, or anything that doesn't fit neatly into one brand — reach us directly at <a href="mailto:info@ariesbloominc.com" style="color:var(--gold); border-bottom:1px solid var(--gold-soft);">info@ariesbloominc.com</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section section--champagne">
+    <div class="wrap reveal">
+      <span class="eyebrow">Prefer to Write to Us Directly?</span>
+      <h2 style="margin-bottom:0.3em;">Send a Message</h2>
+      <p class="lede" style="font-size:1rem; margin-bottom:1.8em;">Tell us which brand your message is about and we'll make sure it's routed internally to the right team.</p>
+      <form data-form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-grid">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="full">
+            <label for="brand">Which Brand Is This About?</label>
+            <select id="brand" name="brand">
+              <option>General / Aries Bloom Inc.</option>
+              <option>BibisGlambar</option>
+              <option>Sasy Couture</option>
+              <option>Baddie Mums Club</option>
+              <option>BB Soirée &amp; Events</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+        </div>
+        <button class="btn btn--gold" type="submit" style="margin-top:26px;">Send Message</button>
+        <p class="form-status" role="status"></p>
+      </form>
     </div>
   </section>
 
@@ -138,7 +165,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Aries Bloom Inc. All rights reserved.</span>
-      <span></span>
+      <span>Ivory · Champagne · Gold</span>
     </div>
   </div>
 </footer>
