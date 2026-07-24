@@ -28,6 +28,7 @@
   --charcoal: #1A1A1A;
   --black: #111111;
   --gold: #C9A227;
+  --gold-deep: #806718;
   --gold-soft: #EAD98A;
 
   /* --- Per-brand accents (the four "petals" of the emblem) --- */
@@ -81,14 +82,14 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.1;
   margin: 0 0 0.55em;
   letter-spacing: 0.005em;
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 500; line-height: 1.05; margin-bottom: 0.4em; }
+h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 600; line-height: 1.05; margin-bottom: 0.4em; }
 h2 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.12; margin-bottom: 0.65em; }
 h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2; }
 
@@ -102,7 +103,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.72rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 1.2em;
   position: relative;
   padding-left: 22px;
@@ -113,8 +114,18 @@ a { color: inherit; text-decoration: none; }
   left: 0; top: 50%;
   width: 14px;
   height: 1px;
-  background: var(--gold);
+  background: var(--gold-deep);
   transform: translateY(-50%);
+}
+/* On dark sections the bright gold already has strong contrast against
+   near-black, so it stays as-is there rather than using the deep variant. */
+.section--dark .eyebrow,
+.section--closing-cta .eyebrow {
+  color: var(--gold);
+}
+.section--dark .eyebrow::before,
+.section--closing-cta .eyebrow::before {
+  background: var(--gold);
 }
 
 .lede {
@@ -429,21 +440,28 @@ select:focus-visible {
   z-index: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  max-width: var(--max-width);
+  text-align: center;
+  max-width: 780px;
   margin: 0 auto;
   padding: clamp(24px, 5vw, 64px) var(--gutter);
+  transform: translateY(-5%);
 }
-.hero__content h1 { color: var(--ivory); }
+.hero__content h1 { color: var(--ivory); margin-bottom: 0.55em; }
 .hero__content .lede {
   max-width: 58ch;
   font-size: clamp(1.05rem, 1.7vw, 1.3rem);
   color: rgba(255,255,255,0.86);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.4em;
 }
 .hero__actions {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .hero__content > * { animation: heroFadeUp 0.9s cubic-bezier(.22,1,.36,1) both; }
 .hero__content > *:nth-child(1) { animation-delay: 0.55s; }
@@ -966,5 +984,25 @@ textarea { resize: vertical; min-height: 110px; }
   transition: border-color 0.4s ease;
 }
 .gallery-grid .img-placeholder:hover { border-color: var(--gold); }
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+}
+.gallery-grid img:hover { transform: scale(1.035); }
 @media (max-width: 700px) { .gallery-grid { grid-template-columns: 1fr 1fr; gap: 14px; } }
 @media (max-width: 420px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+/* Brand card thumbnail (homepage Our Brands grid) */
+.brand-card__image { aspect-ratio: 4/5; overflow: hidden; }
+.brand-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Shared editorial grade — ties photography sourced at different times
+   into one consistent, slightly warmed, slightly muted look. */
+.split__image img,
+.brand-card__image img,
+.gallery-grid img {
+  filter: saturate(0.94) contrast(1.03);
+}
