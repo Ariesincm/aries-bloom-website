@@ -28,7 +28,6 @@
   --charcoal: #1A1A1A;
   --black: #111111;
   --gold: #C9A227;
-  --gold-deep: #806718;
   --gold-soft: #EAD98A;
 
   /* --- Per-brand accents (the four "petals" of the emblem) --- */
@@ -103,7 +102,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.72rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold-deep);
+  color: var(--gold);
   margin-bottom: 1.2em;
   position: relative;
   padding-left: 22px;
@@ -114,18 +113,8 @@ a { color: inherit; text-decoration: none; }
   left: 0; top: 50%;
   width: 14px;
   height: 1px;
-  background: var(--gold-deep);
-  transform: translateY(-50%);
-}
-/* On dark sections the bright gold already has strong contrast against
-   near-black, so it stays as-is there rather than using the deep variant. */
-.section--dark .eyebrow,
-.section--closing-cta .eyebrow {
-  color: var(--gold);
-}
-.section--dark .eyebrow::before,
-.section--closing-cta .eyebrow::before {
   background: var(--gold);
+  transform: translateY(-50%);
 }
 
 .lede {
@@ -415,19 +404,22 @@ select:focus-visible {
   width: 100%;
   min-height: 92vh;
   max-height: 1000px;
-  overflow: hidden;
   background: var(--champagne);
 }
-.hero__banner img {
+.hero__media {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
 }
-.hero__banner::after {
+.hero__media::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -435,34 +427,37 @@ select:focus-visible {
   pointer-events: none;
 }
 .hero__content {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 2;
+  min-height: 92vh;
+  max-height: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 780px;
+  gap: clamp(20px, 3vw, 32px);
+  max-width: 900px;
   margin: 0 auto;
   padding: clamp(24px, 5vw, 64px) var(--gutter);
-  transform: translateY(-5%);
+  transform: translateY(-4%);
 }
-.hero__content h1 { color: var(--ivory); margin-bottom: 0.55em; }
+.hero__content .eyebrow { padding-left: 0; margin-bottom: 0; }
+.hero__content .eyebrow::before { display: none; }
+.hero__content h1 { color: var(--ivory); margin-bottom: 0; font-size: clamp(2.8rem, 7vw, 5.6rem); font-weight: 600; }
 .hero__content .lede {
   max-width: 58ch;
   font-size: clamp(1.05rem, 1.7vw, 1.3rem);
   color: rgba(255,255,255,0.86);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2.4em;
+  margin-bottom: 0;
 }
 .hero__actions {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
 }
+.hero__actions .btn { padding: 18px 38px; }
 .hero__content > * { animation: heroFadeUp 0.9s cubic-bezier(.22,1,.36,1) both; }
 .hero__content > *:nth-child(1) { animation-delay: 0.55s; }
 .hero__content > *:nth-child(2) { animation-delay: 0.68s; }
@@ -472,8 +467,8 @@ select:focus-visible {
   .hero__content > * { animation: none; }
 }
 @media (max-width: 640px) {
-  .hero__content { padding: 28px var(--gutter) 36px; }
-  .hero__banner { min-height: 80vh; }
+  .hero__content { padding: 32px var(--gutter) 40px; min-height: 82vh; }
+  .hero__banner { min-height: 82vh; }
 }
 
 /* =========================================================
@@ -548,6 +543,16 @@ select:focus-visible {
   align-items: center;
 }
 .split.is-reverse .split__image { order: 2; }
+.section--founder {
+  background: var(--cream);
+}
+.section--founder .split {
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(48px, 6vw, 96px);
+}
+@media (max-width: 860px) {
+  .section--founder .split { grid-template-columns: 1fr; }
+}
 @media (max-width: 860px) {
   .split { grid-template-columns: 1fr; }
   .split.is-reverse .split__image { order: 0; }
@@ -892,16 +897,26 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .feature-card {
   background: var(--black);
-  padding: 52px 38px;
+  padding: 0 0 38px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
   transition: background 0.4s cubic-bezier(.22,1,.36,1), transform 0.4s cubic-bezier(.22,1,.36,1);
+  overflow: hidden;
 }
 .feature-card:hover { background: #1f1f1f; transform: translateY(-4px); }
-.feature-card h4 { letter-spacing: 0.01em; }
-.feature-card p { font-size: 0.92rem; }
+.feature-card h4 { letter-spacing: 0.01em; margin-left: 38px; }
+.feature-card p { font-size: 0.92rem; margin-left: 38px; margin-right: 38px; }
+.feature-card__image { width: 100%; aspect-ratio: 4/5; overflow: hidden; }
+.feature-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(.22,1,.36,1);
+}
+.feature-card:hover .feature-card__image img { transform: scale(1.05); }
 
 @media (max-width: 860px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
@@ -984,25 +999,5 @@ textarea { resize: vertical; min-height: 110px; }
   transition: border-color 0.4s ease;
 }
 .gallery-grid .img-placeholder:hover { border-color: var(--gold); }
-.gallery-grid img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s cubic-bezier(.22,1,.36,1);
-}
-.gallery-grid img:hover { transform: scale(1.035); }
 @media (max-width: 700px) { .gallery-grid { grid-template-columns: 1fr 1fr; gap: 14px; } }
 @media (max-width: 420px) { .gallery-grid { grid-template-columns: 1fr; } }
-
-/* Brand card thumbnail (homepage Our Brands grid) */
-.brand-card__image { aspect-ratio: 4/5; overflow: hidden; }
-.brand-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* Shared editorial grade — ties photography sourced at different times
-   into one consistent, slightly warmed, slightly muted look. */
-.split__image img,
-.brand-card__image img,
-.gallery-grid img {
-  filter: saturate(0.94) contrast(1.03);
-}
