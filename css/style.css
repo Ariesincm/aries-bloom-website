@@ -142,6 +142,14 @@ img { max-width: 100%; display: block; }
 .section--dark p { color: var(--nude); }
 .section--dark h1, .section--dark h2, .section--dark h3 { color: var(--ivory); }
 .section--dark .eyebrow { color: var(--gold); }
+.section--charcoal { background: var(--charcoal); color: var(--champagne); }
+.section--charcoal p { color: var(--nude); }
+.section--charcoal h1, .section--charcoal h2, .section--charcoal h3 { color: var(--ivory); }
+.section--charcoal .eyebrow { color: var(--gold); }
+.section--textured {
+  background-color: var(--ivory);
+  background-image: repeating-linear-gradient(135deg, rgba(184,147,90,0.05) 0px, rgba(184,147,90,0.05) 1px, transparent 1px, transparent 15px);
+}
 .section--champagne { background: var(--champagne); }
 
 /* Closing CTA — a soft radial glow behind the content gives the
@@ -981,6 +989,25 @@ textarea { resize: vertical; min-height: 110px; }
 .img-placeholder--card { aspect-ratio: 4/5; min-height: 0; }
 .img-placeholder--square { aspect-ratio: 1/1; min-height: 0; }
 .img-placeholder--wide { aspect-ratio: 16/9; min-height: 0; }
+.editorial-break {
+  width: 100%;
+  aspect-ratio: 21/9;
+  min-height: 320px;
+  max-height: 560px;
+  position: relative;
+}
+.editorial-break .img-placeholder { border-left: none; border-right: none; }
+.editorial-break__caption {
+  position: absolute;
+  bottom: 32px; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--taupe-deep);
+  padding: 0 var(--gutter);
+}
+@media (max-width: 640px) { .editorial-break { aspect-ratio: 4/5; min-height: 280px; } }
 .img-placeholder--avatar {
   aspect-ratio: 1/1; min-height: 0;
   width: 88px; height: 88px;
@@ -1106,6 +1133,8 @@ textarea { resize: vertical; min-height: 110px; }
   transition: transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s cubic-bezier(.22,1,.36,1);
 }
 .mv-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -26px rgba(17,17,17,0.3); }
+.section--dark .mv-card h3, .section--charcoal .mv-card h3 { color: var(--black); }
+.section--dark .mv-card p, .section--charcoal .mv-card p { color: var(--taupe-deep); }
 @media (max-width: 700px) { .mv-grid { grid-template-columns: 1fr; } }
 @media (max-width: 620px) { .mv-card:hover { transform: none; } }
 
