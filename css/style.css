@@ -1627,3 +1627,463 @@ textarea { resize: vertical; min-height: 110px; }
   .brand-gallery__item--wide { grid-column: span 1; aspect-ratio: 4/3; }
   .brand-gallery__item { aspect-ratio: 4/3; }
 }
+
+/* =========================================================
+   EDITORIAL BRAND LAYOUTS — Four Unique Designs
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. BIBISGLAMBAR — Full-width cinematic overlay
+   --------------------------------------------------------- */
+.brand-cinematic {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(520px, 70vh, 780px);
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+}
+.brand-cinematic__media {
+  position: absolute;
+  inset: 0;
+}
+.brand-cinematic__media .img-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: clamp(520px, 70vh, 780px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, #3a2f28 0%, #1a1612 50%, #2c2520 100%);
+  border: none;
+}
+.brand-cinematic__media .img-placeholder__icon { font-size: 2.5rem; color: var(--gold-soft); }
+.brand-cinematic__media .img-placeholder__label { color: rgba(255,255,255,0.5); font-size: 0.75rem; }
+.brand-cinematic__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(17,17,17,0) 0%,
+    rgba(17,17,17,0.15) 30%,
+    rgba(17,17,17,0.65) 70%,
+    rgba(17,17,17,0.88) 100%
+  );
+  pointer-events: none;
+}
+.brand-cinematic__content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: end;
+}
+.brand-cinematic__content .eyebrow {
+  color: var(--gold-soft);
+  grid-column: 1 / -1;
+  margin-bottom: -0.5em;
+}
+.brand-cinematic__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 300;
+  color: var(--ivory);
+  line-height: 1.05;
+  margin: 0;
+}
+.brand-cinematic__headline em {
+  font-style: italic;
+  color: var(--gold-soft);
+}
+.brand-cinematic__right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.brand-cinematic__right p {
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 42ch;
+}
+.brand-cinematic__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.4rem;
+  margin: 0.5rem 0;
+}
+.brand-cinematic__detail {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.brand-cinematic__detail strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ivory);
+  margin-top: 3px;
+}
+.brand-cinematic .btn--gold {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .brand-cinematic__content {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .brand-cinematic__headline { font-size: clamp(2rem, 7vw, 2.8rem); }
+}
+
+/* ---------------------------------------------------------
+   2. SASY COUTURE — Fashion editorial collage
+   --------------------------------------------------------- */
+.brand-collage {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+.brand-collage .wrap {
+  position: relative;
+  z-index: 2;
+}
+.brand-collage__grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr 1.15fr;
+  grid-template-rows: auto auto;
+  gap: clamp(12px, 2vw, 20px);
+  align-items: start;
+}
+.brand-collage__img-tall {
+  grid-row: 1 / 3;
+  aspect-ratio: 3/5;
+}
+.brand-collage__img-wide {
+  aspect-ratio: 4/3;
+}
+.brand-collage__img-square {
+  aspect-ratio: 1/1;
+}
+.brand-collage__img-tall .img-placeholder,
+.brand-collage__img-wide .img-placeholder,
+.brand-collage__img-square .img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-color: rgba(255,255,255,0.12);
+}
+.brand-collage__img-tall .img-placeholder {
+  background: linear-gradient(180deg, #1a1a1a 0%, #2a2520 100%);
+}
+.brand-collage__img-wide .img-placeholder {
+  background: linear-gradient(135deg, #222 0%, #1a1612 100%);
+}
+.brand-collage__img-square .img-placeholder {
+  background: linear-gradient(180deg, #2a2520 0%, #1a1a1a 100%);
+}
+.brand-collage__img-tall .img-placeholder__icon,
+.brand-collage__img-wide .img-placeholder__icon,
+.brand-collage__img-square .img-placeholder__icon {
+  font-size: 2rem; color: rgba(255,255,255,0.25);
+}
+.brand-collage__img-tall .img-placeholder__label,
+.brand-collage__img-wide .img-placeholder__label,
+.brand-collage__img-square .img-placeholder__label {
+  color: rgba(255,255,255,0.35); font-size: 0.7rem;
+}
+.brand-collage__info {
+  grid-column: 2;
+  grid-row: 2;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(0.5rem, 2vw, 1rem) 0 0;
+}
+.brand-collage__info .eyebrow { color: var(--gold-soft); }
+.brand-collage__info h2 {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  color: var(--ivory);
+  margin-bottom: 0.5em;
+  font-weight: 300;
+  line-height: 1.1;
+}
+.brand-collage__info p {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 38ch;
+}
+.brand-collage__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1.4em 0 1.8em;
+}
+.brand-collage__tag {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.7);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.brand-collage__tag:hover {
+  border-color: var(--gold-soft);
+  color: var(--gold-soft);
+}
+@media (max-width: 860px) {
+  .brand-collage__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .brand-collage__img-tall { grid-row: 1 / 2; aspect-ratio: 3/4; }
+  .brand-collage__info { grid-column: 1 / -1; grid-row: 3; padding: 1.5rem 0 0; }
+}
+@media (max-width: 480px) {
+  .brand-collage__grid { grid-template-columns: 1fr; }
+  .brand-collage__img-tall { aspect-ratio: 4/5; }
+  .brand-collage__img-wide { aspect-ratio: 16/9; }
+}
+
+/* ---------------------------------------------------------
+   3. BADDIE MUMS CLUB — Large image + floating info card
+   --------------------------------------------------------- */
+.brand-float {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+.brand-float .wrap {
+  position: relative;
+  z-index: 2;
+}
+.brand-float__layout {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 0;
+  align-items: center;
+  min-height: clamp(400px, 55vh, 600px);
+}
+.brand-float__image {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+.brand-float__image .img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, #e8ddd4 0%, #d4c7bb 100%);
+  border: none;
+}
+.brand-float__image .img-placeholder__icon { font-size: 2.5rem; color: var(--brand-mums); }
+.brand-float__image .img-placeholder__label { color: var(--taupe); font-size: 0.75rem; }
+.brand-float__card {
+  position: relative;
+  margin-left: -80px;
+  background: var(--ivory);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.8rem, 3.5vw, 2.8rem);
+  box-shadow: 0 30px 60px -20px rgba(17,17,17,0.18),
+              0 10px 20px -10px rgba(17,17,17,0.08);
+  z-index: 3;
+}
+.brand-float__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-mums), var(--gold));
+}
+.brand-float__card .eyebrow {
+  color: var(--brand-mums);
+}
+.brand-float__card h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 0.5em;
+  line-height: 1.1;
+}
+.brand-float__card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--taupe-deep);
+  max-width: 40ch;
+}
+.brand-float__highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 1.6em 0 2em;
+}
+.brand-float__highlight {
+  padding: 14px 16px;
+  background: var(--champagne);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--taupe-deep);
+  text-align: center;
+  transition: background 0.3s ease;
+}
+.brand-float__highlight:hover { background: var(--nude); }
+.brand-float__card .btn {
+  border-color: var(--brand-mums);
+  color: var(--brand-mums);
+}
+.brand-float__card .btn:hover {
+  background: var(--brand-mums);
+  color: var(--ivory);
+}
+@media (max-width: 860px) {
+  .brand-float__layout { grid-template-columns: 1fr; }
+  .brand-float__image { aspect-ratio: 16/10; }
+  .brand-float__card {
+    margin-left: 0;
+    margin-top: -60px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 480px) {
+  .brand-float__card {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -40px;
+  }
+  .brand-float__highlights { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------
+   4. BB SOIRÉE — Asymmetrical editorial gallery
+   --------------------------------------------------------- */
+.brand-asymmetric {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+.brand-asymmetric .wrap {
+  position: relative;
+  z-index: 2;
+}
+.brand-asymmetric__layout {
+  display: grid;
+  grid-template-columns: 0.55fr 0.45fr;
+  grid-template-rows: auto auto auto;
+  gap: clamp(12px, 2vw, 20px);
+}
+.brand-asymmetric__hero-img {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  aspect-ratio: 3/4;
+}
+.brand-asymmetric__side-img {
+  grid-column: 2;
+  grid-row: 1;
+  aspect-ratio: 5/4;
+}
+.brand-asymmetric__info {
+  grid-column: 2;
+  grid-row: 2;
+  padding: clamp(1rem, 2.5vw, 2rem) 0 0 clamp(0.5rem, 1.5vw, 1rem);
+}
+.brand-asymmetric__bottom-img {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  aspect-ratio: 21/9;
+}
+.brand-asymmetric__hero-img .img-placeholder,
+.brand-asymmetric__side-img .img-placeholder,
+.brand-asymmetric__bottom-img .img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-color: rgba(255,255,255,0.1);
+}
+.brand-asymmetric__hero-img .img-placeholder {
+  background: linear-gradient(180deg, #35302a 0%, #252018 100%);
+}
+.brand-asymmetric__side-img .img-placeholder {
+  background: linear-gradient(135deg, #2c2820 0%, #1e1c18 100%);
+}
+.brand-asymmetric__bottom-img .img-placeholder {
+  background: linear-gradient(90deg, #2c2820 0%, #35302a 50%, #252018 100%);
+}
+.brand-asymmetric__hero-img .img-placeholder__icon,
+.brand-asymmetric__side-img .img-placeholder__icon,
+.brand-asymmetric__bottom-img .img-placeholder__icon {
+  font-size: 2rem; color: rgba(255,255,255,0.2);
+}
+.brand-asymmetric__hero-img .img-placeholder__label,
+.brand-asymmetric__side-img .img-placeholder__label,
+.brand-asymmetric__bottom-img .img-placeholder__label {
+  color: rgba(255,255,255,0.35); font-size: 0.7rem;
+}
+.brand-asymmetric__info .eyebrow { color: var(--brand-soiree); }
+.brand-asymmetric__info h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+}
+.section--mocha .brand-asymmetric__info h2 { color: var(--ivory); }
+.brand-asymmetric__info p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 38ch;
+}
+.section--mocha .brand-asymmetric__info p { color: rgba(255,255,255,0.72); }
+.brand-asymmetric__services-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
+  margin: 1.4em 0 1.8em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.brand-asymmetric__service {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.3s ease;
+}
+.brand-asymmetric__service:hover { color: var(--gold-soft); }
+@media (max-width: 860px) {
+  .brand-asymmetric__layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .brand-asymmetric__hero-img { grid-row: 1; aspect-ratio: 4/5; }
+  .brand-asymmetric__info { grid-column: 1 / -1; grid-row: 3; padding: 1.5rem 0 0; }
+  .brand-asymmetric__bottom-img { grid-row: 4; }
+}
+@media (max-width: 480px) {
+  .brand-asymmetric__layout { grid-template-columns: 1fr; }
+  .brand-asymmetric__hero-img { aspect-ratio: 4/5; grid-row: auto; }
+  .brand-asymmetric__side-img { aspect-ratio: 16/9; grid-column: 1; }
+  .brand-asymmetric__info { grid-column: 1; padding: 1rem 0; }
+  .brand-asymmetric__bottom-img { grid-column: 1; aspect-ratio: 16/9; }
+}
