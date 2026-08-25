@@ -41,9 +41,9 @@
   --font-body: 'Jost', 'Helvetica Neue', sans-serif;
 
   /* --- Layout --- */
-  --max-width: 1280px;
-  --gutter: clamp(24px, 6.5vw, 104px);
-  --section-space: clamp(88px, 12vw, 192px);
+  --max-width: 1440px;
+  --gutter: clamp(24px, 5vw, 80px);
+  --section-space: clamp(72px, 9vw, 140px);
 }
 
 * { box-sizing: border-box; }
@@ -88,20 +88,20 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(3rem, 6.8vw, 5.6rem); font-weight: 700; line-height: 1.02; margin-bottom: 0.4em; }
-h2 { font-size: clamp(2.3rem, 4.6vw, 3.6rem); font-weight: 700; line-height: 1.08; margin-bottom: 0.65em; }
-h3 { font-size: clamp(1.55rem, 2.6vw, 2.1rem); font-weight: 600; line-height: 1.15; }
+h1 { font-size: clamp(3.2rem, 7.5vw, 6.4rem); font-weight: 700; line-height: 1.02; margin-bottom: 0.4em; }
+h2 { font-size: clamp(2.6rem, 5.2vw, 4.4rem); font-weight: 700; line-height: 1.06; margin-bottom: 0.55em; }
+h3 { font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 600; line-height: 1.12; }
 
-p { margin: 0 0 1.2em; color: var(--taupe-deep); max-width: 62ch; }
+p { margin: 0 0 1.2em; color: var(--taupe-deep); max-width: 62ch; font-size: 1.05rem; line-height: 1.75; }
 
 a { color: inherit; text-decoration: none; }
 
 .eyebrow {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #9c7717;
   margin-bottom: 1.2em;
@@ -120,10 +120,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .lede {
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.12rem, 1.8vw, 1.4rem);
   color: var(--taupe-deep);
-  max-width: 46ch;
-  line-height: 1.6;
+  max-width: 52ch;
+  line-height: 1.65;
 }
 
 img { max-width: 100%; display: block; }
@@ -188,10 +188,10 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 34px;
-  min-height: 48px;
+  padding: 18px 40px;
+  min-height: 52px;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   border: 1px solid var(--black);
@@ -269,7 +269,7 @@ select:focus-visible {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -444,16 +444,16 @@ select:focus-visible {
   justify-content: center;
   text-align: center;
   gap: clamp(20px, 3vw, 32px);
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: clamp(80px, 12vh, 140px) var(--gutter) clamp(48px, 7vh, 80px);
 }
 .hero__content .eyebrow { padding-left: 0; margin-bottom: 0; }
 .hero__content .eyebrow::before { display: none; }
-.hero__content h1 { color: var(--ivory); margin-bottom: 0; font-size: clamp(3rem, 7.2vw, 5.9rem); font-weight: 700; }
+.hero__content h1 { color: var(--ivory); margin-bottom: 0; font-size: clamp(3.4rem, 8vw, 7rem); font-weight: 700; }
 .hero__content .lede {
   max-width: 58ch;
-  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
   color: rgba(255,255,255,0.86);
   margin-bottom: 0;
 }
@@ -511,15 +511,15 @@ select:focus-visible {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 18px;
-  max-width: 780px;
+  gap: 22px;
+  max-width: 900px;
   margin: 0 auto;
   padding: clamp(80px, 12vh, 120px) var(--gutter) 56px;
 }
 .page-hero__content .eyebrow { padding-left: 0; color: var(--gold-soft); }
 .page-hero__content .eyebrow::before { display: none; }
-.page-hero__content h1 { color: var(--ivory); margin-bottom: 0; }
-.page-hero__content .lede { color: rgba(255,255,255,0.86); margin-bottom: 0; max-width: 54ch; }
+.page-hero__content h1 { color: var(--ivory); margin-bottom: 0; font-size: clamp(3.2rem, 7vw, 5.6rem); }
+.page-hero__content .lede { color: rgba(255,255,255,0.86); margin-bottom: 0; max-width: 54ch; font-size: clamp(1.12rem, 1.8vw, 1.4rem); }
 @media (max-width: 640px) {
   .page-hero, .page-hero__content { min-height: 50vh; }
 }
@@ -591,8 +591,8 @@ select:focus-visible {
    ========================================================= */
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gutter);
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
 }
 .split.is-reverse .split__image { order: 2; }
@@ -626,8 +626,8 @@ select:focus-visible {
    STATS STRIP
    ========================================================= */
 .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--gutter); text-align: center; }
-.stats .stat__num { font-family: var(--font-display); font-size: clamp(2.2rem,4vw,3.4rem); color: var(--gold); }
-.stats .stat__label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--nude); }
+.stats .stat__num { font-family: var(--font-display); font-size: clamp(2.6rem,5vw,4.2rem); color: var(--gold); }
+.stats .stat__label { font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--nude); }
 @media (max-width: 700px) { .stats { grid-template-columns: 1fr 1fr; row-gap: 40px; } }
 
 /* =========================================================
@@ -795,9 +795,9 @@ textarea { resize: vertical; min-height: 110px; }
   gap: 40px;
   padding-bottom: 64px;
 }
-.footer-grid h4 { color: var(--ivory); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; font-family: var(--font-body); margin-bottom: 1.6em; }
+.footer-grid h4 { color: var(--ivory); font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; font-family: var(--font-body); margin-bottom: 1.6em; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; }
-.footer-grid li { margin-bottom: 13px; font-size: 0.9rem; line-height: 1.4; }
+.footer-grid li { margin-bottom: 13px; font-size: 0.95rem; line-height: 1.5; }
 .footer-grid a {
   position: relative;
   padding-bottom: 2px;
@@ -904,13 +904,14 @@ textarea { resize: vertical; min-height: 110px; }
 @media (max-width: 480px) {
   :root {
     --gutter: 20px;
-    --section-space: 56px;
+    --section-space: 52px;
   }
 
-  h1 { font-size: 2.1rem; }
-  h2 { font-size: 1.7rem; }
-  h3 { font-size: 1.3rem; }
-  .lede { font-size: 1rem; max-width: none; }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.45rem; }
+  p { font-size: 1rem; }
+  .lede { font-size: 1.05rem; max-width: none; }
 
   .hero { min-height: auto; }
   .hero__copy { padding: 44px var(--gutter) 32px; }
@@ -937,7 +938,18 @@ textarea { resize: vertical; min-height: 110px; }
 
 /* Tablets / small laptops (769–1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-  :root { --gutter: 48px; }
+  :root { --gutter: 44px; }
+}
+
+/* Large desktops (1441px+) — let content breathe at wider viewports */
+@media (min-width: 1441px) {
+  :root { --max-width: 1560px; }
+  body { font-size: 17px; }
+  h1 { font-size: 6.4rem; }
+  h2 { font-size: 4.4rem; }
+  h3 { font-size: 2.4rem; }
+  .lede { font-size: 1.4rem; }
+  .eyebrow { font-size: 0.92rem; }
 }
 
 /* =========================================================
@@ -952,7 +964,7 @@ textarea { resize: vertical; min-height: 110px; }
 .img-placeholder {
   width: 100%;
   height: 100%;
-  min-height: 220px;
+  min-height: 300px;
   background: repeating-linear-gradient(
     135deg,
     var(--champagne) 0px, var(--champagne) 16px,
@@ -1089,7 +1101,7 @@ textarea { resize: vertical; min-height: 110px; }
   font-size: 1.3rem;
 }
 .feature-card h4 { letter-spacing: 0.01em; margin-left: 38px; }
-.feature-card p { font-size: 0.92rem; margin-left: 38px; margin-right: 38px; }
+.feature-card p { font-size: 1rem; margin-left: 38px; margin-right: 38px; }
 .feature-card__image { width: 100%; aspect-ratio: 4/5; overflow: hidden; }
 .feature-card__image img {
   width: 100%;
@@ -1331,22 +1343,22 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-strip__num {
   display: block;
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   letter-spacing: 0.2em;
   color: var(--gold-soft);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .brand-strip__name {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
   font-weight: 600;
   color: var(--ivory);
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   line-height: 1.15;
 }
 .brand-strip__tag {
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.7);
@@ -1378,16 +1390,16 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .brand-showcase__services dt {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--taupe);
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 .brand-showcase__services dd {
   margin: 0 0 16px;
-  font-size: 0.92rem;
+  font-size: 1rem;
   color: var(--taupe-deep);
 }
 .section--dark .brand-showcase__services dt { color: var(--gold-soft); }
@@ -1411,7 +1423,7 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .signature-exp__label {
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1421,7 +1433,7 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .section--dark .signature-exp__label,
 .section--mocha .signature-exp__label { color: var(--gold-soft); }
-.signature-exp p { margin: 0; font-style: italic; font-family: var(--font-display); font-size: 1.15rem; line-height: 1.5; }
+.signature-exp p { margin: 0; font-style: italic; font-family: var(--font-display); font-size: 1.25rem; line-height: 1.5; }
 
 /* --- Inside the Experience grid --- */
 .experience-grid {
@@ -1460,28 +1472,28 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .experience-tile__brand {
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-soft);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: block;
 }
 .experience-tile__title {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
   font-weight: 600;
   color: var(--ivory);
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   line-height: 1.15;
 }
 .experience-tile__desc {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: rgba(255,255,255,0.8);
-  max-width: 36ch;
+  max-width: 40ch;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 @media (max-width: 700px) { .experience-grid { grid-template-columns: 1fr; } }
 
@@ -1525,14 +1537,14 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .chooser-card h4 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   margin-bottom: 0.4em;
 }
-.chooser-card p { font-size: 0.9rem; text-align: center; max-width: none; }
+.chooser-card p { font-size: 0.98rem; text-align: center; max-width: none; }
 .chooser-card .btn {
   padding: 8px 0;
   border: none;
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   margin-top: 12px;
 }
 .chooser-card .btn:hover { background: transparent; color: var(--card-accent, var(--gold)); transform: none; box-shadow: none; }
@@ -1561,15 +1573,15 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .signature-card h4 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   color: var(--ivory);
   margin-bottom: 0.5em;
 }
-.signature-card p { font-size: 0.88rem; color: rgba(255,255,255,0.72); max-width: none; text-align: center; }
+.signature-card p { font-size: 0.95rem; color: rgba(255,255,255,0.72); max-width: none; text-align: center; }
 .signature-card__promise {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--gold-soft);
   margin-top: 16px;
   line-height: 1.45;
@@ -1609,10 +1621,10 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-gallery__caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 48px 20px 16px;
+  padding: 48px 20px 18px;
   background: linear-gradient(180deg, transparent 0%, rgba(17,17,17,0.6) 100%);
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.85);
@@ -1638,7 +1650,7 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-cinematic {
   position: relative;
   overflow: hidden;
-  min-height: clamp(520px, 70vh, 780px);
+  min-height: clamp(560px, 85vh, 920px);
   display: flex;
   align-items: flex-end;
   padding: 0;
@@ -1650,7 +1662,7 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-cinematic__media .img-placeholder {
   width: 100%;
   height: 100%;
-  min-height: clamp(520px, 70vh, 780px);
+  min-height: clamp(560px, 85vh, 920px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1658,8 +1670,8 @@ textarea { resize: vertical; min-height: 110px; }
   background: linear-gradient(135deg, #3a2f28 0%, #1a1612 50%, #2c2520 100%);
   border: none;
 }
-.brand-cinematic__media .img-placeholder__icon { font-size: 2.5rem; color: var(--gold-soft); }
-.brand-cinematic__media .img-placeholder__label { color: rgba(255,255,255,0.5); font-size: 0.75rem; }
+.brand-cinematic__media .img-placeholder__icon { font-size: 3rem; color: var(--gold-soft); }
+.brand-cinematic__media .img-placeholder__label { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
 .brand-cinematic__overlay {
   position: absolute;
   inset: 0;
@@ -1676,25 +1688,26 @@ textarea { resize: vertical; min-height: 110px; }
   position: relative;
   z-index: 3;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
   align-items: end;
 }
 .brand-cinematic__content .eyebrow {
   color: var(--gold-soft);
   grid-column: 1 / -1;
   margin-bottom: -0.5em;
+  font-size: 0.92rem;
 }
 .brand-cinematic__headline {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-size: clamp(3.2rem, 7vw, 6rem);
   font-weight: 300;
   color: var(--ivory);
-  line-height: 1.05;
+  line-height: 1.02;
   margin: 0;
 }
 .brand-cinematic__headline em {
@@ -1708,20 +1721,20 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .brand-cinematic__right p {
   color: rgba(255,255,255,0.85);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.1rem;
+  line-height: 1.7;
   margin: 0;
-  max-width: 42ch;
+  max-width: 46ch;
 }
 .brand-cinematic__details {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem 2.4rem;
-  margin: 0.5rem 0;
+  gap: 1.4rem 2.8rem;
+  margin: 0.8rem 0;
 }
 .brand-cinematic__detail {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
@@ -1729,12 +1742,12 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-cinematic__detail strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   color: var(--ivory);
-  margin-top: 3px;
+  margin-top: 4px;
 }
 .brand-cinematic .btn--gold {
   align-self: flex-start;
@@ -1752,30 +1765,34 @@ textarea { resize: vertical; min-height: 110px; }
    2. SASY COUTURE — Fashion editorial collage
    --------------------------------------------------------- */
 .brand-collage {
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
   position: relative;
   overflow: hidden;
 }
 .brand-collage .wrap {
   position: relative;
   z-index: 2;
+  max-width: var(--max-width);
 }
 .brand-collage__grid {
   display: grid;
-  grid-template-columns: 1fr 0.85fr 1.15fr;
+  grid-template-columns: 1.1fr 0.85fr 1.05fr;
   grid-template-rows: auto auto;
-  gap: clamp(12px, 2vw, 20px);
+  gap: clamp(14px, 2.2vw, 24px);
   align-items: start;
 }
 .brand-collage__img-tall {
   grid-row: 1 / 3;
   aspect-ratio: 3/5;
+  min-height: 500px;
 }
 .brand-collage__img-wide {
   aspect-ratio: 4/3;
+  min-height: 240px;
 }
 .brand-collage__img-square {
   aspect-ratio: 1/1;
+  min-height: 240px;
 }
 .brand-collage__img-tall .img-placeholder,
 .brand-collage__img-wide .img-placeholder,
@@ -1812,32 +1829,32 @@ textarea { resize: vertical; min-height: 110px; }
   grid-row: 2;
   padding: clamp(1.5rem, 3vw, 2.5rem) clamp(0.5rem, 2vw, 1rem) 0 0;
 }
-.brand-collage__info .eyebrow { color: var(--gold-soft); }
+.brand-collage__info .eyebrow { color: var(--gold-soft); font-size: 0.88rem; }
 .brand-collage__info h2 {
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
   color: var(--ivory);
   margin-bottom: 0.5em;
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.06;
 }
 .brand-collage__info p {
   color: rgba(255,255,255,0.72);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  max-width: 38ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 42ch;
 }
 .brand-collage__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 1.4em 0 1.8em;
+  gap: 10px;
+  margin: 1.6em 0 2em;
 }
 .brand-collage__tag {
   font-family: var(--font-body);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 6px 16px;
+  padding: 8px 20px;
   border: 1px solid rgba(255,255,255,0.18);
   color: rgba(255,255,255,0.7);
   transition: border-color 0.3s ease, color 0.3s ease;
@@ -1866,23 +1883,25 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-float {
   position: relative;
   overflow: hidden;
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
 }
 .brand-float .wrap {
   position: relative;
   z-index: 2;
+  max-width: var(--max-width);
 }
 .brand-float__layout {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 0;
   align-items: center;
-  min-height: clamp(400px, 55vh, 600px);
+  min-height: clamp(480px, 70vh, 720px);
 }
 .brand-float__image {
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/4;
   overflow: hidden;
+  min-height: 500px;
 }
 .brand-float__image .img-placeholder {
   width: 100%;
@@ -1898,9 +1917,9 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-float__image .img-placeholder__label { color: var(--taupe); font-size: 0.75rem; }
 .brand-float__card {
   position: relative;
-  margin-left: -80px;
+  margin-left: -100px;
   background: var(--ivory);
-  padding: clamp(2rem, 4vw, 3rem) clamp(1.8rem, 3.5vw, 2.8rem);
+  padding: clamp(2.4rem, 4.5vw, 3.5rem) clamp(2rem, 4vw, 3.2rem);
   box-shadow: 0 30px 60px -20px rgba(17,17,17,0.18),
               0 10px 20px -10px rgba(17,17,17,0.08);
   z-index: 3;
@@ -1915,31 +1934,32 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .brand-float__card .eyebrow {
   color: var(--brand-mums);
+  font-size: 0.88rem;
 }
 .brand-float__card h2 {
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
   font-weight: 300;
   color: var(--charcoal);
   margin-bottom: 0.5em;
-  line-height: 1.1;
+  line-height: 1.06;
 }
 .brand-float__card p {
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: var(--taupe-deep);
-  max-width: 40ch;
+  max-width: 44ch;
 }
 .brand-float__highlights {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin: 1.6em 0 2em;
+  gap: 16px;
+  margin: 1.8em 0 2.2em;
 }
 .brand-float__highlight {
-  padding: 14px 16px;
+  padding: 16px 18px;
   background: var(--champagne);
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   letter-spacing: 0.06em;
   color: var(--taupe-deep);
   text-align: center;
@@ -1977,29 +1997,32 @@ textarea { resize: vertical; min-height: 110px; }
    4. BB SOIRÉE — Asymmetrical editorial gallery
    --------------------------------------------------------- */
 .brand-asymmetric {
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
   position: relative;
   overflow: hidden;
 }
 .brand-asymmetric .wrap {
   position: relative;
   z-index: 2;
+  max-width: var(--max-width);
 }
 .brand-asymmetric__layout {
   display: grid;
-  grid-template-columns: 0.55fr 0.45fr;
+  grid-template-columns: 0.58fr 0.42fr;
   grid-template-rows: auto auto auto;
-  gap: clamp(12px, 2vw, 20px);
+  gap: clamp(14px, 2.2vw, 24px);
 }
 .brand-asymmetric__hero-img {
   grid-column: 1;
   grid-row: 1 / 3;
   aspect-ratio: 3/4;
+  min-height: 500px;
 }
 .brand-asymmetric__side-img {
   grid-column: 2;
   grid-row: 1;
   aspect-ratio: 5/4;
+  min-height: 240px;
 }
 .brand-asymmetric__info {
   grid-column: 2;
@@ -2010,6 +2033,7 @@ textarea { resize: vertical; min-height: 110px; }
   grid-column: 1 / -1;
   grid-row: 3;
   aspect-ratio: 21/9;
+  min-height: 280px;
 }
 .brand-asymmetric__hero-img .img-placeholder,
 .brand-asymmetric__side-img .img-placeholder,
@@ -2041,31 +2065,31 @@ textarea { resize: vertical; min-height: 110px; }
 .brand-asymmetric__bottom-img .img-placeholder__label {
   color: rgba(255,255,255,0.35); font-size: 0.7rem;
 }
-.brand-asymmetric__info .eyebrow { color: var(--brand-soiree); }
+.brand-asymmetric__info .eyebrow { color: var(--brand-soiree); font-size: 0.88rem; }
 .brand-asymmetric__info h2 {
-  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.06;
   margin-bottom: 0.5em;
 }
 .section--mocha .brand-asymmetric__info h2 { color: var(--ivory); }
 .brand-asymmetric__info p {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  max-width: 38ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 42ch;
 }
 .section--mocha .brand-asymmetric__info p { color: rgba(255,255,255,0.72); }
 .brand-asymmetric__services-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem 1.6rem;
-  margin: 1.4em 0 1.8em;
-  padding-top: 1em;
+  gap: 0.8rem 2rem;
+  margin: 1.6em 0 2em;
+  padding-top: 1.2em;
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 .brand-asymmetric__service {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-style: italic;
   color: rgba(255,255,255,0.6);
   transition: color 0.3s ease;
