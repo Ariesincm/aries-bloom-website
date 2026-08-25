@@ -1303,70 +1303,141 @@ textarea { resize: vertical; min-height: 110px; }
    ========================================================= */
 
 /* --- House-at-a-Glance brand strip --- */
-.brand-strip {
+/* --- Brand Showcase Section (below hero) --- */
+.brand-showcase-section {
+  padding: 0;
+  position: relative;
+}
+
+/* Gold divider ornament */
+.showcase-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: clamp(2.4rem, 5vw, 4rem) 0 0;
+}
+.showcase-divider--bottom {
+  padding: 0 0 clamp(2.4rem, 5vw, 4rem);
+}
+.showcase-divider__line {
+  display: block;
+  width: clamp(60px, 12vw, 140px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.showcase-divider__diamond {
+  font-size: 0.6rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* Section header */
+.showcase-header {
+  text-align: center;
+  padding: clamp(2rem, 4vw, 3.2rem) 0 clamp(2.4rem, 5vw, 3.6rem);
+}
+.showcase-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  font-weight: 500;
+  color: var(--black);
+  margin: 0 auto 0.5em;
+  line-height: 1.1;
+  max-width: 16ch;
+}
+.showcase-header__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: var(--taupe);
+  max-width: 54ch;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Card grid */
+.showcase-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  gap: clamp(20px, 3vw, 36px);
+  padding-bottom: clamp(2.4rem, 5vw, 4rem);
 }
-.brand-strip__item {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 3/4;
+
+/* Individual card */
+.showcase-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 24px 36px;
-  text-align: center;
-  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  background: var(--ivory);
+  border: 1px solid var(--nude);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
-.brand-strip__item img {
-  position: absolute;
-  inset: 0;
+.showcase-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08), 0 2px 12px rgba(201,162,39,0.1);
+  transform: translateY(-4px);
+}
+
+/* Image frame */
+.showcase-card__frame {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--champagne);
+}
+.showcase-card__frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   transition: transform 0.7s cubic-bezier(.22,1,.36,1);
 }
-.brand-strip__item:hover img { transform: scale(1.06); }
-.brand-strip__item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(17,17,17,0) 30%, rgba(17,17,17,0.72) 100%);
-  pointer-events: none;
+.showcase-card:hover .showcase-card__frame img {
+  transform: scale(1.04);
 }
-.brand-strip__content {
-  position: relative;
-  z-index: 2;
+
+/* Card info area below image */
+.showcase-card__info {
+  padding: clamp(18px, 2.5vw, 28px) clamp(16px, 2vw, 24px);
+  text-align: center;
+  border-top: 1px solid var(--nude);
 }
-.brand-strip__num {
+.showcase-card__num {
   display: block;
   font-family: var(--font-display);
-  font-size: 0.88rem;
-  letter-spacing: 0.2em;
-  color: var(--gold-soft);
-  margin-bottom: 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-weight: 500;
 }
-.brand-strip__name {
+.showcase-card__name {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
   font-weight: 600;
-  color: var(--ivory);
+  color: var(--black);
   margin: 0 0 8px;
-  line-height: 1.15;
+  line-height: 1.2;
 }
-.brand-strip__tag {
+.showcase-card__tag {
   font-family: var(--font-body);
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: var(--taupe);
+  font-weight: 400;
 }
-@media (max-width: 860px) { .brand-strip { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 480px) {
-  .brand-strip { grid-template-columns: 1fr; }
-  .brand-strip__item { aspect-ratio: 16/9; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .showcase-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+@media (max-width: 540px) {
+  .showcase-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .showcase-card__frame { aspect-ratio: 4/5; }
 }
 
 /* --- Premium brand showcase sections --- */
