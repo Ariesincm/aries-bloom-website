@@ -1542,7 +1542,7 @@ textarea { resize: vertical; min-height: 110px; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(17,17,17,0) 40%, rgba(17,17,17,0.7) 100%);
+  background: linear-gradient(180deg, rgba(17,17,17,0) 55%, rgba(17,17,17,0.55) 100%);
   pointer-events: none;
 }
 .experience-tile__content {
