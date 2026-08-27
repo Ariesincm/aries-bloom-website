@@ -14,12 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => {
       const open = links.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.textContent = open ? 'Close' : 'Menu';
+      // Lock body scroll when menu is open
+      document.body.style.overflow = open ? 'hidden' : '';
     });
     links.querySelectorAll('a').forEach(a =>
       a.addEventListener('click', () => {
         links.classList.remove('is-open');
-        toggle.textContent = 'Menu';
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       })
     );
   }

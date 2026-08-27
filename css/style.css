@@ -293,30 +293,118 @@ select:focus-visible {
 @media (max-width: 860px) {
   .nav__links {
     position: fixed;
-    inset: 72px 0 0 0;
-    background: var(--ivory);
+    inset: 0;
+    z-index: 200;
+    background: rgba(17,17,17,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
-    padding: 40px var(--gutter);
-    gap: 26px;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
     font-size: 1rem;
-    transform: translateY(-8px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(.22,1,.36,1);
   }
-  .nav__links.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  .nav__toggle {
-    display: block;
-    background: none; border: none; cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-    min-height: 44px; min-width: 44px;
+  .nav__links.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav__links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav__links li:first-child {
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
   .nav__links a {
-    display: inline-block;
-    padding: 10px 0;
+    display: block;
+    padding: 22px 24px;
     min-height: 44px;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
   }
+  .nav__links a:hover,
+  .nav__links a[aria-current="page"] {
+    color: var(--gold);
+    letter-spacing: 0.16em;
+  }
+  .nav__links a::after { display: none; }
+
+  /* --- Hamburger toggle button --- */
+  .nav__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 210;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav__toggle .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    position: relative;
+    transition: background 0.3s ease;
+  }
+  .nav__toggle .hamburger::before,
+  .nav__toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1), top 0.35s cubic-bezier(.22,1,.36,1), bottom 0.35s cubic-bezier(.22,1,.36,1);
+  }
+  .nav__toggle .hamburger::before { top: -7px; }
+  .nav__toggle .hamburger::after { bottom: -7px; }
+
+  /* Open state — X icon */
+  .nav__toggle[aria-expanded="true"] .hamburger {
+    background: transparent;
+  }
+  .nav__toggle[aria-expanded="true"] .hamburger::before,
+  .nav__toggle[aria-expanded="true"] .hamburger::after {
+    background: var(--ivory);
+  }
+  .nav__toggle[aria-expanded="true"] .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .nav__toggle[aria-expanded="true"] .hamburger::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Staggered entrance for nav items */
+  .nav__links.is-open li {
+    animation: mobileNavIn 0.5s cubic-bezier(.22,1,.36,1) both;
+  }
+  .nav__links.is-open li:nth-child(1) { animation-delay: 0.05s; }
+  .nav__links.is-open li:nth-child(2) { animation-delay: 0.10s; }
+  .nav__links.is-open li:nth-child(3) { animation-delay: 0.15s; }
+  .nav__links.is-open li:nth-child(4) { animation-delay: 0.20s; }
+  .nav__links.is-open li:nth-child(5) { animation-delay: 0.25s; }
+}
+@keyframes mobileNavIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Phone tier: shrink the logo/emblem mark and tighten nav padding so the
@@ -952,6 +1040,42 @@ a.role:hover {
 /* Tablets / small laptops (769–1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   :root { --gutter: 44px; }
+}
+
+/* =========================================================
+   MOBILE TEXT ALIGNMENT (≤860px)
+   Long paragraphs: justified for an editorial look.
+   Short descriptions / brand-card text: left-aligned.
+   Labels, tags, eyebrows, small supporting text: centered.
+   Headings: untouched — they keep their existing alignment.
+   ========================================================= */
+@media (max-width: 860px) {
+  /* Long body paragraphs — justified for clean editorial feel */
+  .section > .wrap > p,
+  .split > div > p,
+  .brand-showcase > .wrap > p,
+  .brand-ed__desc {
+    text-align: justify;
+  }
+  .lede { text-align: justify; }
+
+  /* Short descriptions inside cards — left-aligned for readability */
+  .brand-card p,
+  .feature-card p,
+  .testimonial-card p,
+  .chooser-card p,
+  .mv-card p { text-align: left; }
+
+  /* Labels, tags, eyebrows, small details — centered */
+  .eyebrow { display: flex; justify-content: center; padding-left: 22px; }
+  .tag { text-align: center; display: block; }
+  .stat__label { text-align: center; }
+  .pillar__num { text-align: center; }
+  .brand-card .tag { text-align: center; }
+
+  /* Values row items — center the small text */
+  .values-row p { text-align: center; }
+  .values-row h4 { text-align: center; }
 }
 
 /* Large desktops (1441px+) — let content breathe at wider viewports */
