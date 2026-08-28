@@ -295,7 +295,7 @@ select:focus-visible {
     position: fixed;
     inset: 0;
     z-index: 200;
-    background: var(--charcoal);
+    background: #FAF6F0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -313,10 +313,10 @@ select:focus-visible {
   .nav__links li {
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(26,22,19,0.08);
   }
   .nav__links li:first-child {
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(26,22,19,0.08);
   }
   .nav__links a {
     display: block;
@@ -327,12 +327,12 @@ select:focus-visible {
     font-weight: 400;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ivory);
+    color: #1A1613;
     transition: color 0.3s ease, letter-spacing 0.3s ease;
   }
   .nav__links a:hover,
   .nav__links a[aria-current="page"] {
-    color: var(--gold);
+    color: #B8935A;
     letter-spacing: 0.16em;
   }
   .nav__links a::after { display: none; }
@@ -379,7 +379,7 @@ select:focus-visible {
   }
   .nav__toggle[aria-expanded="true"] .hamburger::before,
   .nav__toggle[aria-expanded="true"] .hamburger::after {
-    background: var(--ivory);
+    background: #1A1613;
   }
   .nav__toggle[aria-expanded="true"] .hamburger::before {
     top: 0;
